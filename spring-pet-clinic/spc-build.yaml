@@ -3,6 +3,10 @@
   hosts: appserver
   become: yes
   tasks:
+    - name: Fail the execution when the distribution is not ubuntu
+      fail:
+        msg: "This playbook is will work only on ubuntu instances. Support for other os will be added soon"
+      when: ansible_distribution != "ubuntu"
     - name: update ubuntu packages and install java
       apt:
         name: "{{ java_package }}"
