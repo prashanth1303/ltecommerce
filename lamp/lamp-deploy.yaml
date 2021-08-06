@@ -23,9 +23,9 @@
         dest: "{{ info_page_path }}"
         src: "info.php"
       notify:
-        - log installed apache server
+        - log info page is copied
         - restart apache
-    - name: ensure the service is running 
+    - name: ensure the service is running
       service:
         name: "{{ apache_package }}"
         enabled: yes
@@ -35,9 +35,9 @@
       debug:
         msg: "apache server is installed using package {{ apache_package }}"
     - name: log info page is copied
-      debug:
+      debug: 
         msg: "info page is copied into {{ info_page_path }}"
     - name: restart apache
-      service:
+      service: 
         name: "{{ apache_package }}"
         state: restarted
