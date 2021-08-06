@@ -21,7 +21,7 @@
     - name: copy the php info page
       copy:
         dest: "{{info_page_path}}"
-        src: /var/www/html/info.php
+        src: "info.php"
       notify:
         - log installed apache server
         - restart apache
