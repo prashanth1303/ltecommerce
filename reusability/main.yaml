@@ -3,6 +3,12 @@
     import_playbook: test.yaml
     vars:
       utility_softwates:
-         - git
-         - wget
-         - tree
+        - git
+        - wget
+        - tree
+  - name: create files
+    include: "{{ filename2 }}.yaml"
+    vars: 
+      files_list:
+        - /tmp/1.txt
+        - /tmp/2.txt

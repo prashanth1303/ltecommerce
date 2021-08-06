@@ -5,7 +5,7 @@
       - name: create files
         file:
           path: "{{ item }}"
-          state: file
+          state: touch
         loop: "{{ file_list }}"    
           
     
