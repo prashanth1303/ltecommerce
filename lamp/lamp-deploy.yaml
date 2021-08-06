@@ -3,10 +3,10 @@
   hosts: webserver
   become: yes
   tasks:
-    - name: fail the execution when the distribution is not ubuntu and centos
+    - name: Fail the execution when the distribution is not ubuntu and centos
       fail:
-        msg: "This playbook is works only on ubuntu servers. Support for others os will be added sooon"
-      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != "centOS"
+        msg: "This playbook will work only on ubuntu instances. Support for other OS will be added soon"
+      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != "CentOS"
     - name: install apache
       package:
         name: "{{apache_package}}"
