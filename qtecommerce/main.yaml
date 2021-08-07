@@ -1,0 +1,5 @@
+---
+  - name: install spring pet clinic
+    become: yes
+    roles:
+      - spring-pet-clinic
