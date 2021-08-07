@@ -1,2 +1,35 @@
 ---
-# tasks file for role_skeleton
+- name: deploy spring petclinic as linux service 
+  hosts: appserver
+  become: yes
+  tasks:
+    - name: Fail the execution when the distribution is not ubuntu and centos
+      fail:
+        msg: "This playbook will work only on ubuntu instances. Support for other os will b
+      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != 
+    - name: install java 
+      package:
+        name: "{{java_package}}" 
+        state: present 
+    - name: creating a spring petclinic directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+      notify:
+        - debug message for directory creation
+    - name: download springpet clinic
+      get_url: 
+        url: "{{ app_download_url }}"
+        dest: "{{ app_file_name }}"
+    - name: Create springbootuser
+      user:
+        name: "{{ app_username }}"
+        password: "{{ app_username }}"
+        state: present
+      notify:
+        - change ownership of jar file
+    - name: Copy the spring petclinic service file
+      copy:
+        dest: /etc/systemd/system/springpetclinic.service
+        src: springpetclinic.service
+    - name: enable and start spring petclinic
