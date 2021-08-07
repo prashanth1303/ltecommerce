@@ -1,7 +1,7 @@
-Role Name
+spring pet clinic
 =========
 
-A brief description of the role goes here.
+this role can be used to install spring pet clinic on centos and ubuntu servers
 
 Requirements
 ------------
