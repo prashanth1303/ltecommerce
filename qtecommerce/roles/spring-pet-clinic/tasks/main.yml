@@ -1,8 +1,8 @@
 ---
     - name: Fail the execution when the distribution is not ubuntu and centos
       fail:
-        msg: "This playbook will work only on ubuntu instances. Support for other os 
-      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution
+        msg: "This playbook will work only on ubuntu instances. Support for other os will be added soon"
+      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != "CentOS"
     - name: install java 
       package:
         name: "{{java_package}}" 
