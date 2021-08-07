@@ -31,3 +31,7 @@
         dest: /etc/systemd/system/springpetclinic.service
         src: springpetclinic.service
     - name: enable and start spring petclinic
+      systemd:
+       name: springpetclinic.service
+       enabled: yes
+       state: started 
