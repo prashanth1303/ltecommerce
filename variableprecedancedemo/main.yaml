@@ -1,6 +1,5 @@
 ---
-  - name: understanding variable precedence
+  - name: understanding variable precedence 
     hosts: all
-    tasks:
-      roles:
-        - learning2
+    roles:
+      - learning2
