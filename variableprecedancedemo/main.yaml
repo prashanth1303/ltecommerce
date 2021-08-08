@@ -2,6 +2,5 @@
   - name: understanding variable precedence
     hosts: all
     tasks:
-      - name: print the value of var1
-        debug:
-          msg: "value of var1 is {{ var1}}"
+      roles:
+        - learning2
